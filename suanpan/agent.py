@@ -25,10 +25,10 @@ def balance(recipients):
     for name, spent in totals.items():
         for other_name in balances:
             if other_name == name:
-                balances[other_name] = balances[other_name] - spent / divisor
-            else:
                 balances[other_name] = balances[other_name] + spent / divisor
-    return 'Balance:\n' + '\n'.join('{} - {}'.format(n, v)
+            else:
+                balances[other_name] = balances[other_name] - spent / divisor
+    return 'Balance:\n' + '\n'.join('{}: {}'.format(n, v)
                                     for n, v in balances.items())
 
 
